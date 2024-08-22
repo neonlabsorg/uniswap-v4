@@ -1,9 +1,9 @@
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
-import {IHooks} from "@uniswap/v4-core/src/interfaces/IHooks.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
+import {Currency} from "../../lib/v4-core/src/types/Currency.sol";
+import {IHooks} from "../../lib/v4-core/src/interfaces/IHooks.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
 
 struct PathKey {
     Currency intermediateCurrency;

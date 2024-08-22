@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity ^0.8.0;
 
-import {BalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
-import {SafeCast} from "@uniswap/v4-core/src/libraries/SafeCast.sol";
+import {BalanceDelta} from "../../lib/v4-core/src/types/BalanceDelta.sol";
+import {SafeCast} from "../../lib/v4-core/src/libraries/SafeCast.sol";
 
 /// @title Slippage Check Library
 /// @notice a library for checking if a delta exceeds a maximum ceiling or fails to meet a minimum floor

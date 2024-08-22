@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import {ImmutableState} from "./ImmutableState.sol";
 
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
 
 /// @title Pool Initializer
 /// @notice Initializes a Uniswap v4 Pool

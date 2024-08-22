@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.8.0;
 
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
+import {Currency} from "../../lib/v4-core/src/types/Currency.sol";
 import {IV4Router} from "../interfaces/IV4Router.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
 
 /// @title Library for abi decoding in calldata
 library CalldataDecoder {

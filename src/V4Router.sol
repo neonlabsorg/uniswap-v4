@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.26;
 
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
-import {BalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
-import {TickMath} from "@uniswap/v4-core/src/libraries/TickMath.sol";
-import {SafeCast} from "@uniswap/v4-core/src/libraries/SafeCast.sol";
-import {BipsLibrary} from "@uniswap/v4-core/src/libraries/BipsLibrary.sol";
+import {IPoolManager} from "../lib/v4-core/src/interfaces/IPoolManager.sol";
+import {BalanceDelta} from "../lib/v4-core/src/types/BalanceDelta.sol";
+import {PoolKey} from "../lib/v4-core/src/types/PoolKey.sol";
+import {Currency} from "../lib/v4-core/src/types/Currency.sol";
+import {TickMath} from "../lib/v4-core/src/libraries/TickMath.sol";
+import {SafeCast} from "../lib/v4-core/src/libraries/SafeCast.sol";
+import {BipsLibrary} from "../lib/v4-core/src/libraries/BipsLibrary.sol";
 
 import {PathKey, PathKeyLibrary} from "./libraries/PathKey.sol";
 import {CalldataDecoder} from "./libraries/CalldataDecoder.sol";

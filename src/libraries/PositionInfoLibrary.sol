@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
-import {PoolId, PoolIdLibrary} from "@uniswap/v4-core/src/types/PoolId.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
+import {PoolId, PoolIdLibrary} from "../../lib/v4-core/src/types/PoolId.sol";
 
 /**
  * @dev PositionInfo is a packed version of solidity structure.

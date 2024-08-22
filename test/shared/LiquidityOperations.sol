@@ -2,12 +2,12 @@
 pragma solidity ^0.8.24;
 
 import {CommonBase} from "forge-std/Base.sol";
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
-import {BalanceDelta, toBalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
-import {TickMath} from "@uniswap/v4-core/src/libraries/TickMath.sol";
-import {LiquidityAmounts} from "@uniswap/v4-core/test/utils/LiquidityAmounts.sol";
-import {SafeCast} from "@uniswap/v4-core/src/libraries/SafeCast.sol";
+import {Currency} from "../../lib/v4-core/src/types/Currency.sol";
+import {BalanceDelta, toBalanceDelta} from "../../lib/v4-core/src/types/BalanceDelta.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
+import {TickMath} from "../../lib/v4-core/src/libraries/TickMath.sol";
+import {LiquidityAmounts} from "../../lib/v4-core/test/utils/LiquidityAmounts.sol";
+import {SafeCast} from "../../lib/v4-core/src/libraries/SafeCast.sol";
 
 import {PositionManager, Actions} from "../../src/PositionManager.sol";
 import {PositionConfig} from "./PositionConfig.sol";

@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity ^0.8.24;
 
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
-import {TransientStateLibrary} from "@uniswap/v4-core/src/libraries/TransientStateLibrary.sol";
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
+import {Currency} from "../../lib/v4-core/src/types/Currency.sol";
+import {TransientStateLibrary} from "../../lib/v4-core/src/libraries/TransientStateLibrary.sol";
+import {IPoolManager} from "../../lib/v4-core/src/interfaces/IPoolManager.sol";
 import {ImmutableState} from "./ImmutableState.sol";
 import {ActionConstants} from "../libraries/ActionConstants.sol";
 

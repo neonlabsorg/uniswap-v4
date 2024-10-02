@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.26;
 
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
-import {PoolIdLibrary} from "@uniswap/v4-core/src/types/PoolId.sol";
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
-import {BalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
-import {SafeCast} from "@uniswap/v4-core/src/libraries/SafeCast.sol";
-import {Position} from "@uniswap/v4-core/src/libraries/Position.sol";
-import {StateLibrary} from "@uniswap/v4-core/src/libraries/StateLibrary.sol";
-import {TransientStateLibrary} from "@uniswap/v4-core/src/libraries/TransientStateLibrary.sol";
+import {IPoolManager} from "../lib/v4-core/src/interfaces/IPoolManager.sol";
+import {PoolKey} from "../lib/v4-core/src/types/PoolKey.sol";
+import {PoolIdLibrary} from "../lib/v4-core/src/types/PoolId.sol";
+import {Currency} from "../lib/v4-core/src/types/Currency.sol";
+import {BalanceDelta} from "../lib/v4-core/src/types/BalanceDelta.sol";
+import {SafeCast} from "../lib/v4-core/src/libraries/SafeCast.sol";
+import {Position} from "../lib/v4-core/src/libraries/Position.sol";
+import {StateLibrary} from "../lib/v4-core/src/libraries/StateLibrary.sol";
+import {TransientStateLibrary} from "../lib/v4-core/src/libraries/TransientStateLibrary.sol";
 import {IAllowanceTransfer} from "permit2/src/interfaces/IAllowanceTransfer.sol";
 
 import {ERC721Permit_v4} from "./base/ERC721Permit_v4.sol";

@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 import {ISubscriber} from "../interfaces/ISubscriber.sol";
 import {INotifier} from "../interfaces/INotifier.sol";
-import {CustomRevert} from "@uniswap/v4-core/src/libraries/CustomRevert.sol";
-import {BalanceDelta} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
+import {CustomRevert} from "../../lib/v4-core/src/libraries/CustomRevert.sol";
+import {BalanceDelta} from "../../lib/v4-core/src/types/BalanceDelta.sol";
 import {PositionInfo} from "../libraries/PositionInfoLibrary.sol";
 
 /// @notice Notifier is used to opt in to sending updates to external contracts about position modifications or transfers

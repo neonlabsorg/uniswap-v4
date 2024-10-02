@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
-import {Currency, CurrencyLibrary} from "@uniswap/v4-core/src/types/Currency.sol";
+import {IPoolManager} from "../../lib/v4-core/src/interfaces/IPoolManager.sol";
+import {Currency, CurrencyLibrary} from "../../lib/v4-core/src/types/Currency.sol";
 import {V4Router} from "../../src/V4Router.sol";
 import {ReentrancyLock} from "../../src/base/ReentrancyLock.sol";
 import {SafeTransferLib} from "solmate/src/utils/SafeTransferLib.sol";

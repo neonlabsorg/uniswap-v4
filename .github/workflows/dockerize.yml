@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
-          token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           git pull --recurse-submodules
           git submodule update --remote --recursive

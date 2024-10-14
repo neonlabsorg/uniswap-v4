@@ -4,4 +4,3 @@
 [submodule "lib/v4-core"]
 	path = lib/v4-core
 	url = https://github.com/neonlabsorg/uniswap-v4-core
-	branch = fix-for-tests

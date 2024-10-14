@@ -10,7 +10,6 @@ import eth_account.signers.local
 import requests
 import solcx
 import web3
-from eth_abi import abi
 from eth_utils import keccak
 from solcx import link_code
 
@@ -137,18 +136,6 @@ class Web3Client:
             return body
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Failed to decode EVM info: {resp.text}")
-
-    def get_proxy_version(self):
-        return self._get_evm_info("neon_proxy_version")
-
-    def get_cli_version(self):
-        return self._get_evm_info("neon_cli_version")
-
-    def get_neon_versions(self):
-        return self._get_evm_info("neon_versions")
-
-    def get_evm_version(self):
-        return self._get_evm_info("web3_clientVersion")
 
     def get_neon_emulate(self, params):
         return requests.post(
@@ -440,14 +427,10 @@ class NeonChainWeb3Client(Web3Client):
         self,
         faucet,
         amount: int = InputTestConstants.NEW_USER_REQUEST_AMOUNT.value,
-        bank_account=None,
     ):
         """Creates a new account with balance"""
         account = self.create_account()
-        if bank_account is not None:
-            self.send_neon(bank_account, account, amount)
-        else:
-            faucet.request_neon(account.address, amount=amount)
+        faucet.request_neon(account.address, amount=amount)
         return account
 
     def send_neon(
@@ -492,17 +475,16 @@ class Faucet:
 
 
 class EthAccounts:
-    def __init__(self, web3_client: NeonChainWeb3Client, faucet, eth_bank_account):
+    def __init__(self, web3_client: NeonChainWeb3Client, faucet):
         self._web3_client = web3_client
         self._faucet = faucet
-        self._bank_account = eth_bank_account
         self._accounts = []
         self.accounts_collector = []
 
     def __getitem__(self, item):
         if len(self._accounts) < (item + 1):
             for _ in range(item + 1 - len(self._accounts)):
-                account = self._web3_client.create_account_with_balance(self._faucet, bank_account=self._bank_account)
+                account = self._web3_client.create_account_with_balance(self._faucet)
 
                 self._accounts.append(account)
                 self.accounts_collector.append(account)
@@ -510,9 +492,7 @@ class EthAccounts:
 
     def create_account(self, balance=InputTestConstants.NEW_USER_REQUEST_AMOUNT.value):
         if balance > 0:
-            account = self._web3_client.create_account_with_balance(
-                self._faucet, balance, bank_account=self._bank_account
-            )
+            account = self._web3_client.create_account_with_balance(self._faucet, balance)
         else:
             account = self._web3_client.create_account()
         self.accounts_collector.append(account)

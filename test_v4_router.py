@@ -3,10 +3,10 @@ import pytest
 from utils import EthAccounts, NeonChainWeb3Client, decode_function_signature
 
 
-@pytest.mark.usefixtures("accounts", "web3_client")
+# @pytest.mark.usefixtures("accounts", "web3_client")
 class TestV4Router:
-    web3_client: NeonChainWeb3Client
-    accounts: EthAccounts
+    # web3_client: NeonChainWeb3Client
+    # accounts: EthAccounts
 
     TEST_FUNCTIONS = [
         # ("V4Router.t.sol", "test_swapExactInputSingle_revertsForAmountOut()"),
@@ -49,22 +49,22 @@ class TestV4Router:
     ]
 
     @pytest.mark.parametrize("contract_name,call_method", TEST_FUNCTIONS)
-    def test_swap_functions(self, contract_name, call_method, v4_router_test, faucet):
+    def test_swap_functions(self, contract_name, call_method, v4_router_test, faucet, accounts, web3_client):
         contract = v4_router_test[contract_name]
-        print(f"Sender: {self.accounts[0].address}")
+        print(f"Sender: {accounts[0].address}")
         print(f"V4RouterTest: {contract.address}")
 
-        sender_account = self.accounts[0]
+        sender_account = accounts[0]
         faucet.request_neon(contract.address, 300)
 
-        print(f"Balance: {self.web3_client.get_balance(sender_account)}")
-        print(f"Balance V4T: {self.web3_client.get_balance(contract.address)}")
+        print(f"Balance: {web3_client.get_balance(sender_account)}")
+        print(f"Balance V4T: {web3_client.get_balance(contract.address)}")
 
-        tx = self.web3_client.make_raw_tx(sender_account)
+        tx = web3_client.make_raw_tx(sender_account)
         intruction_tx = contract.functions.setUp().build_transaction(tx)
-        receipt = self.web3_client.send_transaction(sender_account, intruction_tx)
+        receipt = web3_client.send_transaction(sender_account, intruction_tx)
         call_data = decode_function_signature(call_method)
 
-        tx = self.web3_client.make_raw_tx(sender_account, to=contract.address, data=call_data, estimate_gas=True)
-        receipt = self.web3_client.send_transaction(sender_account, tx)
+        tx = web3_client.make_raw_tx(sender_account, to=contract.address, data=call_data, estimate_gas=True)
+        receipt = web3_client.send_transaction(sender_account, tx)
         assert receipt["status"] == 1

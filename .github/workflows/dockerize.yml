@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: true
       - run: |
-          git submodule update --init --recursive
+          git submodule update --init --recursive --remote
       - name: Define tag
         id: define-env
         run: |

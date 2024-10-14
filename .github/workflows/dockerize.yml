@@ -14,7 +14,6 @@ jobs:
           submodules: 'recursive'
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          git submodule sync
           git pull --recurse-submodules
           git submodule update --remote --recursive
       - name: Define tag

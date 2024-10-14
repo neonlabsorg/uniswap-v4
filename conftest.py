@@ -68,17 +68,19 @@ def v4_router_test(accounts, v4_router, position_manager, web3_client, faucet):
     print(f"Pool manager address: {pool_manager.address}")
     print(f"Position manager address: {position_manager.address}")
     print(f"Accounts: {accounts}")
+    for method in ["neon_proxyVersion", "neon_coreVersion", "neon_versions", "web3_clientVersion"]:
+        print(f"{method} {web3_client.get_evm_info(method)}")
     deployed_contracts = dict()
     for name in [
         "V4Router.t.sol",
-        # "V4Router2.t.sol",
-        # "V4Router3.t.sol",
-        # "V4Router4.t.sol",
-        # "V4Router5.t.sol",
-        # "V4Router6.t.sol",
-        # "V4Router7.t.sol",
-        # "V4Router8.t.sol",
-        # "V4Router9.t.sol",
+        "V4Router2.t.sol",
+        "V4Router3.t.sol",
+        "V4Router4.t.sol",
+        "V4Router5.t.sol",
+        "V4Router6.t.sol",
+        "V4Router7.t.sol",
+        "V4Router8.t.sol",
+        "V4Router9.t.sol",
     ]:
         contract, _ = web3_client.deploy_and_get_contract(
             contract=f"test/router/{name}",

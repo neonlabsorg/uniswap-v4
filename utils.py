@@ -413,6 +413,18 @@ class Web3Client:
         ).json()
         return int(resp["result"]["tokenPriceUsd"], 16) / 100000
 
+    def get_evm_info(self, method):
+        resp = requests.post(
+            self._proxy_url,
+            json={"jsonrpc": "2.0", "method": method, "params": [], "id": 1},
+        )
+        resp.raise_for_status()
+        try:
+            body = resp.json()
+            return body
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"Failed to decode EVM info: {resp.text}")
+
 
 class NeonChainWeb3Client(Web3Client):
     def __init__(

@@ -13,6 +13,7 @@ jobs:
         with:
           submodules: true
       - run: |
+          git submodule sync
           git pull --recurse-submodules
           git submodule update --remote --recursive
       - name: Define tag

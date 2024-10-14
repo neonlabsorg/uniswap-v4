@@ -14,7 +14,6 @@ jobs:
           submodules: 'recursive'
       - run: |
           git submodule init
-          git pull --recurse-submodules
           git submodule update --remote --recursive
       - name: Define tag
         id: define-env

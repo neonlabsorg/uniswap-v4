@@ -1,0 +1,32 @@
+name: Update docker image
+
+on:
+  push:
+  workflow_dispatch:
+env:
+  IMAGE_NAME: neonlabsorg/uniswap-v4
+jobs:
+  dockerize:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git submodule update --init --remote --recursive
+      - name: Define tag
+        id: define-env
+        run: |
+          if [[ "${{ github.ref_name }}" == 'main'  ]]; then
+            tag='latest'
+          else
+            tag='${{ github.ref_name }}'
+          fi
+          echo "tag=${tag}"
+          echo "tag=${tag}" >> $GITHUB_OUTPUT
+      - name: Build image
+        run: |
+          docker build -t $IMAGE_NAME:${{ steps.define-env.outputs.tag }} .
+      - name: Push image
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p "${{ secrets.DOCKER_PASSWORD }}"
+          echo "Push image $IMAGE_NAME:${{ steps.define-env.outputs.tag }} to Docker registry"
+          docker push --all-tags $IMAGE_NAME

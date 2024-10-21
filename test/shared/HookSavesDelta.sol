@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-import {IPoolManager} from "@uniswap/v4-core/src/interfaces/IPoolManager.sol";
-import {PoolKey} from "@uniswap/v4-core/src/types/PoolKey.sol";
-import {BalanceDelta, BalanceDeltaLibrary} from "@uniswap/v4-core/src/types/BalanceDelta.sol";
+import {IPoolManager} from "../../lib/v4-core/src/interfaces/IPoolManager.sol";
+import {PoolKey} from "../../lib/v4-core/src/types/PoolKey.sol";
+import {BalanceDelta, BalanceDeltaLibrary} from "../../lib/v4-core/src/types/BalanceDelta.sol";
 
-import {BaseTestHooks} from "@uniswap/v4-core/src/test/BaseTestHooks.sol";
+import {BaseTestHooks} from "../../lib/v4-core/src/test/BaseTestHooks.sol";
 
 /// @notice This contract is NOT a production use contract. It is meant to be used in testing to verify the delta amounts against changes in a user's balance.
 contract HookSavesDelta is BaseTestHooks {

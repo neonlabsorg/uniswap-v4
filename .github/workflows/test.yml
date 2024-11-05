@@ -11,7 +11,7 @@ jobs:
     name: Forge Tests
     runs-on: ["self-hosted", "k8s-prod"]
     container:
-      image: ubuntu:24.04
+      image: bitnami/git:2.47.0
 
     steps:
       - uses: actions/checkout@v4

@@ -9,7 +9,9 @@ on:
 jobs:
   run-linters:
     name: Forge Linting
-    runs-on: ubuntu-latest
+    runs-on: ["self-hosted", "k8s-prod"]
+    container:
+      image: ubuntu:24.04
 
     steps:
       - uses: actions/checkout@v3

@@ -10,6 +10,10 @@ jobs:
   run-tests:
     name: Forge Tests
     runs-on: ["self-hosted", "k8s-prod"]
+    container:
+      image: summerwind/actions-runner:latest
+      options:
+       "--memory-reservation=12G"
 
     steps:
       - name: Install Git

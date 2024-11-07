@@ -13,14 +13,14 @@ jobs:
 
     steps:
       - name: Install Git
-        run: sudo apt update && sudo apt install git -y
+        run: sudo apt update && sudo apt install git build-essential libssl-dev pkg-config -y
 
       - uses: actions/checkout@v4
         with:
           submodules: recursive
 
       - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1.2.0
+        uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
           cache: false

@@ -9,7 +9,7 @@ on:
 jobs:
   run-linters:
     name: Forge Linting
-    runs-on: ["self-hosted", "k8s-prod"]
+    runs-on: ["gha-runner-scale-set"]
 
     steps:
       - name: Install Git

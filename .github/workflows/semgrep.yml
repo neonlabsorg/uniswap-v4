@@ -10,7 +10,7 @@ on:
     - cron: '35 11 * * *'
 jobs:
   semgrep:
-    runs-on: ["self-hosted", "k8s-prod"]
+    runs-on: ["gha-runner-scale-set"]
     name: semgrep/ci
     env:
       SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}

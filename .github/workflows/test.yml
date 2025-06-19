@@ -9,7 +9,7 @@ on:
 jobs:
   run-tests:
     name: Forge Tests
-    runs-on: ["self-hosted", "k8s-prod"]
+    runs-on: ["gha-runner-scale-set"]
     container:
       image: summerwind/actions-runner:latest
       options:

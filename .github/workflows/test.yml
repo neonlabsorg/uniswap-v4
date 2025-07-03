@@ -9,11 +9,7 @@ on:
 jobs:
   run-tests:
     name: Forge Tests
-    runs-on: ["gha-runner-scale-set"]
-    container:
-      image: summerwind/actions-runner:latest
-      options:
-       "--memory-reservation=12G"
+    runs-on: ["gha-runner-scale-set-large"]
 
     steps:
       - name: Install Git

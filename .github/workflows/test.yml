@@ -9,7 +9,7 @@ on:
 jobs:
   run-tests:
     name: Forge Tests
-    runs-on: ["gha-runner-scale-set"]
+    runs-on: ["gha-runner-scale-set-large"]
 
     steps:
       - name: Install Git
